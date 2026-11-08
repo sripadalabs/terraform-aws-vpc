@@ -75,7 +75,7 @@ resource "aws_s3_bucket_object_lock_configuration" "flow_logs" {
   }
 }
 
-resource "vpc_flow_logs" "this" {
+resource "aws_flow_log" "this" {
   count = var.create_vpc ? 1 : 0
   vpc_id = aws_vpc.this[0].id
   traffic_type = "ALL"
