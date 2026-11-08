@@ -1,10 +1,10 @@
 resource "aws_s3_bucket" "flow_logs" {
   count = var.create_vpc && var.vpc_flow_logs_bucket_arn == "" ? 1 : 0
-  bucket = "vpc-flow-logs"
+  bucket = "${var.vpc_name}-flow-logs"
   tags = merge(
     var.tags,
     {
-      Name = "$vpc-flow-logs"
+      Name = "acimate-managed-vpc-flow-logs"
     },
   )
 }

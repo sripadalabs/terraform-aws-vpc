@@ -8,6 +8,7 @@ resource "aws_vpc" "this" {
   tags                 = merge(var.tags,
     {
       "managed-vpc" = true
+      "Name"        = var.vpc_name
     }
   )
 }
